@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AJAX</title>
+  </head>
+  <body>
+    <div id="result">Yoo Good</div>
+
+    <button onclick="FetchDATA()">Click Here</button>
+  </body>
+
+  <script>
+    function FetchDATA() {
+      const http = new XMLHttpRequest();
+
+      http.onload = function () {
+        document.getElementById("result").innerHTML = this.responseText;
+      };
+
+      http.open("GET", "js/data.js", true);
+      http.send();
+    }
+  </script>
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+
+<hotel>
+
+<restaurant_menu id="1">
+    <Menuid>1</Menuid>
+    <FoodCategory>South Indian</FoodCategory>
+    <FoodItemName>Dosa</FoodItemName>
+    <FoodIngredient>Salt, Tomato, Aalu</FoodIngredient>
+    <Price>5000</Price>
+    <Qty>1</Qty>
+</restaurant_menu>
+
+<restaurant_menu id="2">
+    <Menuid>2</Menuid>
+    <FoodCategory>Indian</FoodCategory>
+    <FoodItemName>Sandwich</FoodItemName>
+    <FoodIngredient>Bread, Tomato, Aalu</FoodIngredient>
+    <Price>401</Price>
+    <Qty>4</Qty>
+</restaurant_menu>
+
+<restaurant_menu id="3">
+    <Menuid>3</Menuid>
+    <FoodCategory>East Indian</FoodCategory>
+    <FoodItemName>Mango Chutney</FoodItemName>
+    <FoodIngredient>Mango</FoodIngredient>
+    <Price>399</Price>
+    <Qty>2</Qty>
+</restaurant_menu>
+
+<restaurant_menu id="4">
+    <Menuid>4</Menuid>
+    <FoodCategory>West Indian</FoodCategory>
+    <FoodItemName>Pancit Luglug</FoodItemName>
+    <FoodIngredient>Cake</FoodIngredient>
+    <Price>3129</Price>
+    <Qty>1</Qty>
+</restaurant_menu>
+
+<restaurant_menu id="5">
+    <Menuid>5</Menuid>
+    <FoodCategory>North Indian</FoodCategory>
+    <FoodItemName>Pickapeppa Sauce</FoodItemName>
+    <FoodIngredient>Tomato</FoodIngredient>
+    <Price>684</Price>
+    <Qty>1</Qty>
+</restaurant_menu>
+
+</hotel>
