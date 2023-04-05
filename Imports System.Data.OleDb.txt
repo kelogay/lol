@@ -1,0 +1,103 @@
+Imports System.Data.OleDb
+
+Public Class Form1
+
+    Dim con As New OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Work\sem_4\product.mdb")
+    Dim cmd As New OleDbCommand
+    Dim ad As New OleDbDataAdapter
+    Dim ds As New DataSet
+
+    Sub display()
+
+        con.Open()
+        cmd.CommandText = "select * from product"
+        cmd.Connection = con
+        ad.SelectCommand = cmd
+        cmd.ExecuteNonQuery()
+
+        ds.Clear()
+
+        ad.Fill(ds, 0)
+        DataGridView1.DataSource = ds.Tables(0)
+        con.Close()
+    End Sub
+
+    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        display()
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+
+        con.Open()
+        cmd.CommandText = "insert into product values(@pId,@pName,@pPrice,@pQ,@eDate)"
+        cmd.Parameters.AddWithValue("@pId", Val(TextBox1.Text))
+        cmd.Parameters.AddWithValue("@pName", TextBox2.Text)
+        cmd.Parameters.AddWithValue("@pPrice", Val(TextBox3.Text))
+        cmd.Parameters.AddWithValue("@pQ", Val(TextBox4.Text))
+        cmd.Parameters.AddWithValue("@eDate", Val(TextBox5.Text))
+
+        cmd.Connection = con
+        ad.SelectCommand = cmd
+        cmd.ExecuteNonQuery()
+
+        cmd.Parameters.Clear()
+
+        con.Close()
+        display()
+    End Sub
+
+    Private Sub DateTimePicker1_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateTimePicker1.ValueChanged
+
+        TextBox5.Text = DateValue(DateTimePicker1.Value)
+
+    End Sub
+
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+
+        con.Open()
+
+        cmd.CommandText = "SELECT * FROM product WHERE pName=@pName"
+        cmd.Parameters.AddWithValue("@pName", TextBox6.Text)
+
+        cmd.Connection = con
+        ad.SelectCommand = cmd
+        cmd.ExecuteNonQuery()
+
+        ds.Clear()
+
+        ad.Fill(ds, 0)
+        DataGridView1.DataSource = ds.Tables(0)
+        con.Close()
+    End Sub
+
+    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+
+        con.Open()
+
+        cmd.CommandText = "DELETE FROM product WHERE eDate < @eDate"
+        cmd.Parameters.AddWithValue("@eDate", TextBox5.Text)
+
+        cmd.Connection = con
+        ad.SelectCommand = cmd
+        cmd.ExecuteNonQuery()
+
+        cmd.Parameters.Clear()
+
+        con.Close()
+        display()
+    End Sub
+
+    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+        con.Open()
+        cmd.CommandText = "UPDATE product SET pPrice=pPrice+(0.05*pPrice)"
+
+        cmd.Connection = con
+        ad.SelectCommand = cmd
+        cmd.ExecuteNonQuery()
+
+        cmd.Parameters.Clear()
+
+        con.Close()
+        display()
+    End Sub
+End Class
