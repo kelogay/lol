@@ -1,0 +1,4 @@
+NPP_SAVE
+cd $(CURRENT_DIRECTORY)
+javac $(FILE_NAME)
+java $(NAME_PART)

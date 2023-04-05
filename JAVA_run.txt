@@ -1,0 +1,4 @@
+NPP_SAVE
+cd $(CURRENT_DIRECTORY)
+C:\Program Files\Java\jdk1.8.0_301\bin\javac $(FILE_NAME)
+C:\Program Files\Java\jdk1.8.0_301\bin\appletviewer $(FILE_NAME)
