@@ -21,5 +21,12 @@ public class new3 extends Applet
 		g.setColor(Color.pink);
 		g.fillPolygon(new int[] {230,230,470,470},
 					new int[] {70,300,300,70},4);
+	
+		g.setColor(Color.red);
+		Font f = new Font("Times New Roman", Font.BOLD, 20);
+			g.setFont(f);
+		g.drawString("HEHE",80,60);
+	
+	
 	}
 }
